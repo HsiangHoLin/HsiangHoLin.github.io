@@ -1,1 +1,267 @@
-hello
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Brian的美國正道神學院快樂學習之旅</title>
+
+<style>
+:root{
+    --bg:#0d1117;
+    --card:#161b22;
+    --card-hover:#1c2128;
+    --border:#30363d;
+
+    --text:#e6edf3;
+    --muted:#8b949e;
+    --accent:#58a6ff;
+
+    --red:#f85149;
+    --yellow:#d29922;
+    --green:#3fb950;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:
+        "PingFang TC",
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    font-size:15px;
+}
+
+.container{
+    width:min(900px,94%);
+    margin:auto;
+    padding:50px 0;
+}
+
+header{
+    margin-bottom:45px;
+}
+
+header h1{
+    font-size:2.2rem;
+    margin-bottom:12px;
+}
+
+header p{
+    color:var(--muted);
+    max-width:700px;
+}
+
+.semester{
+    margin-top:40px;
+}
+
+.semester h2{
+    font-size:1.3rem;
+    color:var(--accent);
+    margin-bottom:18px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+}
+
+.course{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 22px;
+    margin-bottom:14px;
+    transition:.2s;
+}
+
+.course:hover{
+    background:var(--card-hover);
+}
+
+.course-title{
+    font-size:1.1rem;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.tag{
+    background:#21262d;
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:5px 12px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.badge{
+    color:white;
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.high{
+    background:var(--red);
+}
+
+.medium{
+    background:var(--yellow);
+    color:#111;
+}
+
+.low{
+    background:var(--green);
+}
+
+.books-title{
+    color:var(--muted);
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.book{
+    display:inline-block;
+    margin:4px 8px 4px 0;
+    padding:5px 12px;
+    border-radius:999px;
+    background:#21262d;
+    border:1px solid var(--border);
+    font-size:13px;
+}
+
+footer{
+    margin-top:60px;
+    color:var(--muted);
+    text-align:center;
+    font-size:13px;
+}
+
+@media(max-width:700px){
+
+header h1{
+    font-size:1.7rem;
+}
+
+.meta{
+    gap:8px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>📚 Brian 的美國正道神學院快樂學習之旅</h1>
+
+<p>
+這裡記錄我在美國正道神學院修習的每一門課，
+包括修課時間、學分、授課老師、耗時程度，以及使用教材。
+希望多年之後回顧時，仍能記得神一路的帶領與學習歷程。
+</p>
+
+</header>
+
+<section class="semester">
+
+<h2>2025 春季</h2>
+
+<div class="course">
+
+<div class="course-title">
+📖 釋經學
+</div>
+
+<div class="meta">
+<span class="tag">3 學分</span>
+<span class="tag">蔡玉玲教授</span>
+<span class="badge high">耗時：高</span>
+</div>
+
+<div class="books-title">教科書</div>
+
+<span class="book">J. Scott Duvall; J. Daniel Hays. Grasping God's Word A Hands-On Approach to Reading, Interpreting, and Applying the Bible.</span>
+<span class="book">Grant R. Osborne. The Hermeneutical Spiral A Comprehensive Introduction to Biblical Interpretation.</span>
+
+</div>
+
+<div class="course">
+
+<div class="course-title">
+📖 圖書資訊研究方法
+</div>
+
+<div class="meta">
+<span class="tag">2 學分</span>
+<span class="tag">章勝中教授</span>
+<span class="badge medium">耗時：中</span>
+</div>
+
+<div class="books-title">教科書</div>
+
+<span class="book">Thielicke. A Little Exercise for Young Theologians.</span>
+<span class="book">Kate L. Turabian. A Manual for Writers of Research Papers, Theses, and Dissertations, Ninth Edition Chicago Style for Students and Researchers</span>
+
+</div>
+
+</section>
+
+<section class="semester">
+
+<h2>2025 秋季</h2>
+
+<div class="course">
+
+<div class="course-title">
+📖 靈命塑造
+</div>
+
+<div class="meta">
+<span class="tag">3 學分</span>
+<span class="tag">劉富理教授</span>
+<span class="badge low">耗時：低</span>
+</div>
+
+<div class="books-title">教科書</div>
+
+<span class="book">Brother Lawrence. The Practice of the Presence of God with Spiritual Maxims.</span>
+<span class="book">Gordon MacDonald. Ordering Your Private World.</span>
+<span class="book">Joan M. Swanson. Give Me Your Heart.</span>
+<span class="book">蔡麗安  Leona Frances Choy《靈火力源—屬靈偉人對聖靈的探究與體驗》</span>
+<span class="book">Larry Crabb. Inside Out.</span>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ for lifelong theological learning.
+
+</footer>
+
+</div>
+
+</body>
+</html>
