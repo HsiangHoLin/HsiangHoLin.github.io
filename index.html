@@ -2,15 +2,15 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Brian的美國正道神學院快樂學習之旅</title>
+<title>Brian 的美國正道福音神學院快樂學習之旅</title>
 
 <style>
 :root{
     --bg:#0d1117;
-    --card:#161b22;
-    --card-hover:#1c2128;
+    --panel:#161b22;
+    --panel-hover:#1c2128;
     --border:#30363d;
 
     --text:#e6edf3;
@@ -37,23 +37,23 @@ body{
 
     background:var(--bg);
     color:var(--text);
-    line-height:1.6;
+    line-height:1.55;
     font-size:15px;
 }
 
 .container{
-    width:min(900px,94%);
+    width:min(920px,94%);
     margin:auto;
-    padding:50px 0;
+    padding:45px 0 70px;
 }
 
 header{
-    margin-bottom:45px;
+    margin-bottom:35px;
 }
 
-header h1{
-    font-size:2.2rem;
-    margin-bottom:12px;
+h1{
+    font-size:2rem;
+    margin-bottom:10px;
 }
 
 header p{
@@ -61,33 +61,61 @@ header p{
     max-width:700px;
 }
 
+#filterBar{
+    margin-top:18px;
+    padding:10px 14px;
+    background:#11161d;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:var(--muted);
+    font-size:14px;
+}
+
 .semester{
-    margin-top:40px;
+    margin-top:42px;
 }
 
 .semester h2{
-    font-size:1.3rem;
     color:var(--accent);
-    margin-bottom:18px;
-    padding-bottom:8px;
     border-bottom:1px solid var(--border);
+    padding-bottom:8px;
+    margin-bottom:18px;
 }
 
 .course{
-    background:var(--card);
+    overflow:hidden;
+    background:var(--panel);
     border:1px solid var(--border);
     border-radius:14px;
-    padding:18px 22px;
+    padding:18px 20px;
     margin-bottom:14px;
-    transition:.2s;
+    transition:
+        opacity .25s,
+        transform .25s,
+        max-height .3s ease,
+        margin .3s ease,
+        padding .3s ease,
+        background .2s;
+    max-height:300px;
 }
 
 .course:hover{
-    background:var(--card-hover);
+    background:var(--panel-hover);
+}
+
+.course.hidden{
+    opacity:0;
+    max-height:0;
+    margin:0;
+    padding-top:0;
+    padding-bottom:0;
+    border-width:0;
+    overflow:hidden;
+    pointer-events:none;
 }
 
 .course-title{
-    font-size:1.1rem;
+    font-size:1.08rem;
     font-weight:700;
     margin-bottom:14px;
 }
@@ -99,67 +127,74 @@ header p{
     margin-bottom:14px;
 }
 
+.tag,
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:13px;
+    user-select:none;
+}
+
 .tag{
     background:#21262d;
     border:1px solid var(--border);
-    border-radius:999px;
-    padding:5px 12px;
     color:var(--muted);
-    font-size:13px;
 }
 
 .badge{
     color:white;
-    border-radius:999px;
-    padding:5px 12px;
-    font-size:13px;
     font-weight:bold;
 }
 
-.high{
-    background:var(--red);
+.high{background:var(--red);}
+.medium{background:var(--yellow);color:#111;}
+.low{background:var(--green);}
+
+.professor,
+.level{
+    cursor:pointer;
+    transition:.15s;
 }
 
-.medium{
-    background:var(--yellow);
-    color:#111;
-}
-
-.low{
-    background:var(--green);
+.professor:hover,
+.level:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.2);
 }
 
 .books-title{
     color:var(--muted);
     margin-bottom:8px;
-    font-size:14px;
 }
 
 .book{
     display:inline-block;
     margin:4px 8px 4px 0;
     padding:5px 12px;
-    border-radius:999px;
     background:#21262d;
     border:1px solid var(--border);
+    border-radius:999px;
     font-size:13px;
 }
 
 footer{
-    margin-top:60px;
-    color:var(--muted);
+    margin-top:55px;
     text-align:center;
+    color:var(--muted);
     font-size:13px;
 }
 
 @media(max-width:700px){
 
-header h1{
-    font-size:1.7rem;
-}
-
 .meta{
     gap:8px;
+}
+
+h1{
+    font-size:1.6rem;
 }
 
 }
@@ -173,83 +208,133 @@ header h1{
 
 <header>
 
-<h1>📚 Brian 的美國正道神學院快樂學習之旅</h1>
+<h1>📚 Brian 的美國正道福音神學院快樂學習之旅</h1>
 
 <p>
-這裡記錄我在美國正道神學院修習的每一門課，
-包括修課時間、學分、授課老師、耗時程度，以及使用教材。
-希望多年之後回顧時，仍能記得神一路的帶領與學習歷程。
+記錄我在美國正道福音神學院修過的每一門課程、教授、教材與心得。
+點擊<strong>教授</strong>或<strong>耗時</strong>即可快速篩選。
 </p>
 
+<div id="filterBar">
+目前：顯示全部
+</div>
+
 </header>
+
+<!-- 2025 Spring -->
 
 <section class="semester">
 
 <h2>2025 春季</h2>
 
-<div class="course">
+<div class="course"
+     data-professor="蔡玉玲"
+     data-level="高">
 
-<div class="course-title">
-📖 釋經學
-</div>
+<div class="course-title">📖 釋經學</div>
 
 <div class="meta">
 <span class="tag">3 學分</span>
-<span class="tag">蔡玉玲教授</span>
-<span class="badge high">耗時：高</span>
+
+<span class="tag professor">
+👩‍🏫 蔡玉玲教授
+</span>
+
+<span class="badge high level">
+🔥 高
+</span>
 </div>
 
 <div class="books-title">教科書</div>
 
-<span class="book">J. Scott Duvall; J. Daniel Hays. Grasping God's Word A Hands-On Approach to Reading, Interpreting, and Applying the Bible.</span>
-<span class="book">Grant R. Osborne. The Hermeneutical Spiral A Comprehensive Introduction to Biblical Interpretation.</span>
+<span class="book">placeholder</span>
+<span class="book">placeholder</span>
 
 </div>
 
-<div class="course">
+<div class="course"
+     data-professor="章勝中"
+     data-level="中">
 
-<div class="course-title">
-📖 圖書資訊研究方法
-</div>
+<div class="course-title">📖 圖書資訊研究方法</div>
 
 <div class="meta">
 <span class="tag">2 學分</span>
-<span class="tag">章勝中教授</span>
-<span class="badge medium">耗時：中</span>
+
+<span class="tag professor">
+👨‍🏫 章勝中教授
+</span>
+
+<span class="badge medium level">
+⏳ 中
+</span>
+
 </div>
 
 <div class="books-title">教科書</div>
 
-<span class="book">Thielicke. A Little Exercise for Young Theologians.</span>
-<span class="book">Kate L. Turabian. A Manual for Writers of Research Papers, Theses, and Dissertations, Ninth Edition Chicago Style for Students and Researchers</span>
+<span class="book">placeholder</span>
+<span class="book">placeholder</span>
 
 </div>
 
 </section>
 
+<!-- 2025 Fall -->
+
 <section class="semester">
 
 <h2>2025 秋季</h2>
 
-<div class="course">
+<div class="course"
+     data-professor="劉富理"
+     data-level="低">
 
-<div class="course-title">
-📖 靈命塑造
-</div>
+<div class="course-title">📖 靈命塑造</div>
 
 <div class="meta">
+
 <span class="tag">3 學分</span>
-<span class="tag">劉富理教授</span>
-<span class="badge low">耗時：低</span>
+
+<span class="tag professor">
+👨‍🏫 劉富理教授
+</span>
+
+<span class="badge low level">
+🌱 低
+</span>
+
 </div>
 
 <div class="books-title">教科書</div>
 
-<span class="book">Brother Lawrence. The Practice of the Presence of God with Spiritual Maxims.</span>
-<span class="book">Gordon MacDonald. Ordering Your Private World.</span>
-<span class="book">Joan M. Swanson. Give Me Your Heart.</span>
-<span class="book">蔡麗安  Leona Frances Choy《靈火力源—屬靈偉人對聖靈的探究與體驗》</span>
-<span class="book">Larry Crabb. Inside Out.</span>
+<span class="book">placeholder</span>
+<span class="book">placeholder</span>
+
+</div>
+
+<div class="course"
+     data-professor="蔡玉玲"
+     data-level="高">
+
+<div class="course-title">📖 釋經學</div>
+
+<div class="meta">
+<span class="tag">3 學分</span>
+
+<span class="tag professor">
+👩‍🏫 蔡玉玲教授
+</span>
+
+<span class="badge high level">
+🔥 高
+</span>
+</div>
+
+<div class="books-title">教科書</div>
+
+<span class="book">placeholder</span>
+<span class="book">placeholder</span>
 
 </div>
 
@@ -257,11 +342,102 @@ header h1{
 
 <footer>
 
-Made with ❤️ for lifelong theological learning.
+Made with ❤️ for lifelong theological learning
 
 </footer>
 
 </div>
+
+<script>
+
+const courses = document.querySelectorAll(".course");
+const semesters = document.querySelectorAll(".semester");
+const filterBar = document.getElementById("filterBar");
+
+let filter = null;
+
+function updateSemesterVisibility(){
+
+    semesters.forEach(section=>{
+
+        const visible =
+            [...section.querySelectorAll(".course")]
+            .some(c=>!c.classList.contains("hidden"));
+
+        section.style.display = visible ? "" : "none";
+
+    });
+
+}
+
+function applyFilter(type,value){
+
+    // click same tag -> reset
+
+    if(filter &&
+       filter.type===type &&
+       filter.value===value){
+
+        filter=null;
+
+        filterBar.innerHTML="目前：<strong>顯示全部</strong>";
+
+        courses.forEach(c=>c.classList.remove("hidden"));
+
+        updateSemesterVisibility();
+
+        return;
+    }
+
+    filter={type,value};
+
+    filterBar.innerHTML=
+        `目前篩選：<strong>${value}</strong>（再次點擊可取消）`;
+
+    courses.forEach(course=>{
+
+        if(course.dataset[type]===value)
+            course.classList.remove("hidden");
+        else
+            course.classList.add("hidden");
+
+    });
+
+    updateSemesterVisibility();
+
+}
+
+document.querySelectorAll(".professor").forEach(tag=>{
+
+    tag.onclick=()=>{
+
+        const value=
+            tag.textContent
+               .replace("👨‍🏫","")
+               .replace("👩‍🏫","")
+               .replace("教授","")
+               .trim();
+
+        applyFilter("professor",value);
+
+    };
+
+});
+
+document.querySelectorAll(".level").forEach(tag=>{
+
+    tag.onclick=()=>{
+
+        const value=
+            tag.textContent.trim().replace("🔥","").replace("⏳","").replace("🌱","").trim();
+
+        applyFilter("level",value);
+
+    };
+
+});
+
+</script>
 
 </body>
 </html>
